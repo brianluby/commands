@@ -38,6 +38,10 @@ Production-ready slash commands for [Claude Code](https://docs.anthropic.com/en/
 - **🤖 Workflows**: Multi-subagent orchestration for complex tasks
 - **🔧 Tools**: Single-purpose utilities for specific operations
 
+### 🌟 About This Fork
+
+This fork of the excellent [original commands repository](https://github.com/wshobson/commands) by Seth Hobson includes additional customizations and improvements tailored for our development workflows. We maintain compatibility with the upstream while adding our own enhancements.
+
 ### 🤝 Requires Claude Code Subagents
 
 These commands work with the [Claude Code Subagents](https://github.com/wshobson/agents) for orchestration capabilities.
@@ -46,9 +50,17 @@ These commands work with the [Claude Code Subagents](https://github.com/wshobson
 
 ```bash
 cd ~/.claude
-git clone https://github.com/wshobson/commands.git
+git clone https://github.com/brianluby/commands.git
 git clone https://github.com/wshobson/agents.git  # Required for subagent orchestration
 ```
+
+> **Note:** If you've already cloned the original repository, you can add this fork as a remote:
+> ```bash
+> cd ~/.claude/commands
+> git remote add fork https://github.com/brianluby/commands.git
+> git fetch fork
+> git checkout -b custom-features fork/main
+> ```
 
 ## Available Commands
 
@@ -435,11 +447,27 @@ Slash commands are simple markdown files where:
 - **Chain commands strategically** - Workflows → Tools → Refinements
 - **Build on previous outputs** - Commands are designed to work together
 
+## Our Customizations
+
+This fork includes:
+- Additional custom workflows tailored for our team's development patterns
+- Enhanced tool configurations optimized for our tech stack
+- Integration with our internal tooling and processes
+- Custom CLAUDE.md instructions for our specific workflows
+
+We regularly sync with the upstream repository to incorporate new features while maintaining our custom enhancements.
+
 ## Contributing
 
+### To This Fork
 1. Create `.md` file in `workflows/` or `tools/`
 2. Use lowercase-hyphen-names
 3. Include `$ARGUMENTS` for user input
+4. Test thoroughly with our development workflows
+5. Submit PR with clear description of enhancements
+
+### To Upstream
+For general improvements that would benefit the broader community, consider contributing directly to the [original repository](https://github.com/wshobson/commands)
 
 ## Troubleshooting
 
@@ -481,3 +509,11 @@ Slash commands are simple markdown files where:
 - [Subagents Documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents)
 - [Claude Code GitHub](https://github.com/anthropics/claude-code)
 - [Claude Code Subagents Collection](https://github.com/wshobson/agents) - Specialized subagents used by these commands
+
+## Credits
+
+This collection builds upon the fantastic work by [Seth Hobson](https://github.com/wshobson) in creating a comprehensive set of Claude Code commands. We're grateful for the foundation provided by the original repository and the broader Claude Code community.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

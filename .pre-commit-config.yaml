@@ -1,0 +1,71 @@
+repos:
+  # Basic file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+  
+  # Markdown formatting and linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.37.0
+    hooks:
+      - id: markdownlint
+        args: ['--fix']
+        files: \.(md|markdown)$
+  
+  # Custom command validation
+  - repo: local
+    hooks:
+      - id: validate-commands
+        name: Validate Claude Code Commands
+        entry: python tests/test_framework.py
+        language: python
+        files: (workflows|tools)/.*\.md$
+        pass_filenames: false
+        additional_dependencies: [PyYAML]
+      
+      - id: check-command-naming
+        name: Check Command Naming Convention
+        entry: bash -c 'find workflows tools -name "*.md" | grep -E "[A-Z]|[^a-z0-9-]" && echo "❌ Command names must use lowercase-hyphen format" && exit 1 || exit 0'
+        language: system
+        files: (workflows|tools)/.*\.md$
+        pass_filenames: false
+      
+      - id: check-version-metadata
+        name: Check Version Metadata
+        entry: python -c "
+import sys
+from pathlib import Path
+files = [Path(f) for f in sys.argv[1:] if f.endswith('.md')]
+for f in files:
+    content = f.read_text()
+    if not content.startswith('---'):
+        print(f'⚠️  {f}: Missing version frontmatter')
+"
+        language: python
+        files: (workflows|tools)/.*\.md$
+      
+      - id: check-arguments-placeholder
+        name: Check $ARGUMENTS Placeholder
+        entry: python -c "
+import sys
+from pathlib import Path
+# Commands that likely need arguments
+needs_args = ['create', 'generate', 'build', 'scaffold', 'implement', 'add', 'migrate']
+files = [Path(f) for f in sys.argv[1:] if f.endswith('.md')]
+for f in files:
+    name = f.stem
+    if any(word in name for word in needs_args):
+        content = f.read_text()
+        if '$ARGUMENTS' not in content:
+            print(f'⚠️  {f}: Likely needs $ARGUMENTS placeholder based on name')
+"
+        language: python
+        files: (workflows|tools)/.*\.md$
