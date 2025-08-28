@@ -1,4 +1,5 @@
 
+<!-- Language selector commented out for fork
 <div align="right">
   <details>
     <summary >🌐 Language</summary>
@@ -29,18 +30,26 @@
     </div>
   </details>
 </div>
+-->
 
 # Claude Code Slash Commands
 
 Production-ready slash commands for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that accelerate development through intelligent automation.
 
-**52 commands** organized as:
+**62 commands** organized as:
 - **🤖 Workflows**: Multi-subagent orchestration for complex tasks
 - **🔧 Tools**: Single-purpose utilities for specific operations
 
 ### 🌟 About This Fork
 
-This fork of the excellent [original commands repository](https://github.com/wshobson/commands) by Seth Hobson includes additional customizations and improvements tailored for our development workflows. We maintain compatibility with the upstream while adding our own enhancements.
+This repository is a fork of the excellent [original Claude Code Commands](https://github.com/wshobson/commands) created by [Seth Hobson](https://github.com/wshobson). We are deeply grateful for the solid foundation and comprehensive command set that Seth has built for the Claude Code community.
+
+This fork includes additional customizations and improvements:
+- Enhanced Rust development tools (8 new commands)
+- Quality assurance infrastructure (testing, versioning, pre-commit hooks)
+- Additional development workflows tailored for our team
+
+We maintain compatibility with the upstream repository and regularly sync to incorporate new features.
 
 ### 🤝 Requires Claude Code Subagents
 
@@ -161,6 +170,16 @@ Multi-subagent orchestration for complex tasks:
 ### Onboarding & Setup
 - **[onboard](tools/onboard.md)** - Set up development environments for new team members
 
+### Rust Development
+- **[rust-analyzer](tools/rust-analyzer.md)** - Deep static analysis and refactoring for Rust code
+- **[rust-bench](tools/rust-bench.md)** - Performance benchmarking with Criterion and flamegraphs
+- **[rust-fuzz](tools/rust-fuzz.md)** - Fuzzing infrastructure with cargo-fuzz and AFL++
+- **[rust-io-optimize](tools/rust-io-optimize.md)** - Platform-specific I/O optimizations
+- **[rust-error-design](tools/rust-error-design.md)** - Design robust error handling systems
+- **[rust-async](tools/rust-async.md)** - Async runtime optimization with Tokio
+- **[rust-cli](tools/rust-cli.md)** - CLI application framework with Clap
+- **[rust-unsafe-audit](tools/rust-unsafe-audit.md)** - Comprehensive unsafe code auditing
+
 ### Subagent Tools
 - **[multi-agent-review](tools/multi-agent-review.md)** - Multi-perspective code review with specialized subagents
 - **[smart-debug](tools/smart-debug.md)** - Deep debugging with debugger and performance subagents
@@ -178,7 +197,7 @@ Multi-subagent orchestration for complex tasks:
 
 ## Command Count
 
-**Total: 52 production-ready slash commands** organized into:
+**Total: 62 production-ready slash commands** organized into:
 
 ### 🤖 Workflows (14 commands)
 
@@ -186,7 +205,7 @@ Multi-subagent orchestration for complex tasks:
 - Development Process Automation (6 commands)
 - Subagent-Orchestrated Workflows (5 commands)
 
-### 🔧 Tools (38 commands)
+### 🔧 Tools (48 commands)
 
 - AI & Machine Learning (5 commands)
 - Architecture & Code Quality (4 commands)
@@ -198,6 +217,7 @@ Multi-subagent orchestration for complex tasks:
 - Dependencies & Configuration (3 commands)
 - Documentation & Collaboration (1 command)
 - Onboarding & Setup (1 command)
+- Rust Development (8 commands)
 - Subagent-Specific Tools (5 commands)
 
 ## Usage Examples
@@ -447,15 +467,28 @@ Slash commands are simple markdown files where:
 - **Chain commands strategically** - Workflows → Tools → Refinements
 - **Build on previous outputs** - Commands are designed to work together
 
-## Our Customizations
+## Our Fork Enhancements
 
-This fork includes:
-- Additional custom workflows tailored for our team's development patterns
-- Enhanced tool configurations optimized for our tech stack
-- Integration with our internal tooling and processes
-- Custom CLAUDE.md instructions for our specific workflows
+This fork extends the original repository with:
 
-We regularly sync with the upstream repository to incorporate new features while maintaining our custom enhancements.
+### 🦀 Rust Development Suite (8 new tools)
+- **rust-analyzer** - Deep static analysis and refactoring
+- **rust-bench** - Performance benchmarking with Criterion
+- **rust-fuzz** - Comprehensive fuzzing infrastructure
+- **rust-io-optimize** - Platform-specific I/O optimizations
+- **rust-error-design** - Error handling architecture
+- **rust-async** - Async runtime optimization
+- **rust-cli** - CLI application framework
+- **rust-unsafe-audit** - Unsafe code security analysis
+
+### 🔧 Development Infrastructure
+- **Test Framework** - Command validation and quality checks
+- **Version Manager** - Semantic versioning for commands
+- **Pre-commit Hooks** - Automated quality enforcement
+- **Error Standards** - Consistent error handling patterns
+- **Development Guide** - Comprehensive contributor documentation
+
+We maintain full compatibility with the upstream repository and regularly sync to incorporate new features.
 
 ## Contributing
 
