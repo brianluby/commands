@@ -1,15 +1,19 @@
 # AGENTS.md
 
 ## Repository Type
-Collection of 52 production-ready slash commands for Claude Code organized as workflows (multi-subagent orchestration) and tools (single-purpose utilities).
+**Hybrid Repository**: 
+- `opencode-tools/` - Native conversational development assistants for OpenCode
+- `legacy-claude-tools/` - Original 52 production-ready slash commands for Claude Code
+- `workflows/` - Multi-subagent orchestration workflows (Claude Code)
 
 ## Build/Test Commands
 This repository contains markdown-based slash commands - no build/test commands needed. Commands are validated through usage in Claude Code environment.
 
 ## File Structure
-- `workflows/` - Multi-subagent orchestration commands (14 files)
-- `tools/` - Single-purpose utility commands (38 files)
-- Commands are markdown files where filename becomes the slash command
+- `opencode-tools/` - Native OpenCode conversational development assistants
+- `legacy-claude-tools/` - Original Claude Code slash commands (52 tools + 14 workflows)
+- `workflows/` - Multi-subagent orchestration workflows for Claude Code
+- Commands are markdown files optimized for their respective environments
 
 ## Code Style Guidelines
 - Use lowercase-hyphen-names for command files (e.g., `api-scaffold.md`)
@@ -21,6 +25,15 @@ This repository contains markdown-based slash commands - no build/test commands 
 - Use framework auto-detection patterns to work with existing tech stacks
 
 ## Command Types
-- **Workflows**: Use for complex, multi-domain tasks requiring subagent coordination
-- **Tools**: Use for focused, single-domain tasks with specific implementations
-- Commands should be self-contained and work together seamlessly
+
+### OpenCode Native Tools (New)
+- **Conversational Development**: Natural language interface with context awareness
+- **Progressive Building**: Incremental feature development through dialogue  
+- **Codebase Integration**: Automatically detects and integrates with existing code
+- **Examples**: API Generator, Security Auditor, Container Optimizer
+
+### Claude Code Commands (Legacy)
+- **Workflows**: Multi-domain tasks requiring subagent coordination
+- **Tools**: Focused, single-domain tasks with specific implementations
+- **Slash Interface**: Template-based execution with `$ARGUMENTS` placeholders
+- **Examples**: /api-scaffold, /security-scan, /docker-optimize
