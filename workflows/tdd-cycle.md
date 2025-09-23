@@ -1,5 +1,5 @@
 ---
-model: opus
+model: claude-opus-4-1
 ---
 
 Execute a comprehensive Test-Driven Development (TDD) workflow with strict red-green-refactor discipline:

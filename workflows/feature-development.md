@@ -1,5 +1,5 @@
 ---
-model: opus
+model: claude-opus-4-1
 ---
 
 Implement a new feature using specialized agents with explicit Task tool invocations:

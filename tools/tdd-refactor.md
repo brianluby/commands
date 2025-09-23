@@ -1,5 +1,5 @@
 ---
-model: opus
+model: claude-opus-4-1
 ---
 
 Refactor code with confidence using comprehensive test safety net:
